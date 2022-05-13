@@ -72,6 +72,8 @@ if (process.env.HOST) {
   console.log();
 }
 
+const config = configFactory('development');
+
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
@@ -86,8 +88,6 @@ checkBrowsers(paths.appPath, isInteractive)
       // We have not found a port.
       return;
     }
-
-    const config = configFactory('development');
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.appPackageJson).name;
 
